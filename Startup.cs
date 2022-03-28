@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using TheBlogProject.Data;
 using TheBlogProject.Models;
 using TheBlogProject.Services;
+using TheBlogProject.ViewModels;
 
 namespace TheBlogProject
 {
@@ -49,8 +50,18 @@ namespace TheBlogProject
 
             services.AddRazorPages();
 
+            //Register my Image service
+            services.AddScoped<IImageService, BasicImageService>();
+
             //Register my custom DataService class
             services.AddScoped<DataService>();
+
+            //register a pre-configured instance of the MailSettings class
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddScoped<IBlogEmailSender, EmailService>();
+
+            //Register the slug service
+            services.AddScoped<ISlugService, BasicSlugService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
