@@ -11247,3 +11247,8 @@ header.masthead .site-heading .h1 {
 option {
     font-weight: bolder;
 }
+
+div.swal2-container.swal2-center.swal2-backdrop-show > div {
+    outline: 4px solid black;
+    border: 2px solid #198754;
+}
