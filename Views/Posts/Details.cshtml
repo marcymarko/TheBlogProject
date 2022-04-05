@@ -1,5 +1,9 @@
 ﻿@model TheBlogProject.Models.Post
+@using TheBlogProject.Services
+@using Microsoft.AspNetCore.Identity
 
+@inject IImageService imageService
+@inject UserManager<BlogUser> userManager
 @{
     ViewData["Title"] = "Details";
 }
@@ -33,5 +37,83 @@
 
 
 <hr />
-        <!-- Displaying comments related to this post-->
-        <!-- Display the image of the comment's Author-->
+        
+<>
+    @if(User.Identity.IsAuthenticated)
+    {
+        <form asp-action="Create" asp-controller="Comments" method="post">
+            @Html.Hidden("PostId", Model.Id)
+
+            <div class="form-group">
+                <label class="h2 custom-control-label font-weight-bold">Add Comment</label>
+                <textarea name="body" class="form-control" rows="10"></textarea>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-dark btn-block btn-sm">Submit</button>
+
+
+        </form>
+    }
+    else
+    {
+        <a class="btn note-btn-block btn-sm btn-dark" asp-area="Identity" asp-page="/Account/Login">Login to add comments</a>
+    }
+
+    <hr />
+
+    <span id="commentSection" class="btn btn-sm btn-dark btn-block">@Model.Comments.Count COMMENT(S)</span>
+
+    @foreach (var comment in Model.Comments)
+    {
+        <div class="media media-border p-0 mb-2 bg-light">
+            <img class="mr-3 mt-3 rounded-circle" style="width:60px;" src="@imageService.DecodeImage(comment.BlogUser.ImageData, comment.BlogUser.ContentType)"/>
+            <div class="media-body">
+                <h4>@comment.BlogUser.FullName</h4>
+                <small><i>Posted on @comment.Created.ToString("MMM dd, yyyy")</i></small>
+                <p>@comment.Body</p>
+
+                @if(comment.Moderated is null && comment.Deleted is null && comment.BlogUserId == userManager.GetUserId(User))
+                {
+                    <hr />
+                    <button data-bs-toggle="modal" data-bs-target="#editModal" class="btn-sm tbn-dark note-float-right font-weight-bold">EDIT</button>
+                }
+
+            </div>
+        </div>
+
+        @*Modals*@
+        <div class="modal" id="editModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editing Comment...</h4>
+                    </div>
+
+                    <!-- Modal Body-->
+                    <div class="modal-body">
+                        <form asp-action="Edit" asp-controller="Comments">
+                            @Html.Hidden("Id", comment.Id)
+
+                        <div class="form-group">
+                            <textarea name="Body" class="form-control" required>@comment.Body</textarea>
+                        </div>
+
+                     <button class="btn-sm btn-dark border-success font-weight-bold" type="submit">SUBMIT</button>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btnsmall btn-dark font-weight-bold" data-bs-dismiss="modal">CLOSE</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+   
+

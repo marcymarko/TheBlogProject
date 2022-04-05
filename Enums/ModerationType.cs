@@ -6,7 +6,7 @@ namespace TheBlogProject.Enums
     {
         [Description("Money can't buy happiness")]
         Money,
-        [Description("Pride makes great people fall")]
+        [Description("Pride makes great people stumble")]
         Pride,
         [Description("Murderer don't write in my blog")]
         Murder,
