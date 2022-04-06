@@ -74,9 +74,9 @@ namespace TheBlogProject.Controllers
 
 
         // GET: Posts/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string slug)
         {
-            if (id == null )
+            if (string.IsNullOrEmpty(slug))
             {
                 return NotFound();
             }
@@ -87,7 +87,7 @@ namespace TheBlogProject.Controllers
                 .Include(p => p.Tags)
                 .Include(p => p.Comments)
                 .ThenInclude(c => c.BlogUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Slug == slug);
             if (post == null)
             {
                 return NotFound();
