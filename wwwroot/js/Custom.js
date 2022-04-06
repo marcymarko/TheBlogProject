@@ -4,6 +4,7 @@ function AddTag() {
     //Get a reference to the tagEntry by Id
     var tagEntry = document.getElementById("TagEntry");
 
+
     //let's use the new search function to help detect an error state
     let searchResult = search(tagEntry.value);
     if (searchResult != null) {
@@ -13,7 +14,7 @@ function AddTag() {
         });
     }
     else {
-        //Create a ne Select Option
+        //Create a new Select Option
         let newOption = new Option(tagEntry.value, tagEntry.value);
         document.getElementById("TagList").options[index++] = newOption;
 
@@ -28,7 +29,7 @@ function AddTag() {
 
 function DeleteTag() {
     let tagCount = 1;
-    let tagList = document.getElementBtId("TagList");
+    let tagList = document.getElementById("TagList");
     if (!tagList) return false;
 
     if (tagList.selectedIndex == -1) {
@@ -53,7 +54,7 @@ function DeleteTag() {
 
 
 $("form").on("submit", function () {
-    $("TagList option").prop("selected", "selected");
+    $("#TagList option").prop("selected", "selected");
 })
 
 //Look for the tagValues variable to see if it has data
