@@ -20,7 +20,7 @@
                     <img class="card-img-top" src="@_imageService.DecodeImage(blog.ImageData, blog.ContentType)"/>
                     <div class="card-body text-center">
 
-                        <div class="bg-warning">
+                        <div class="bg-primary">
                             <hr class="card-hr" />
                             <h5 class="card-title">@blog.Name</h5>
                             <hr class="card-hr"/>
@@ -50,7 +50,7 @@
                         @if (User.IsInRole(BlogRole.Administrator.ToString()))
                         {
                             <div class="text-center">
-                                <a class="btn btn-dark btn-sm note-btn-block mb-2" asp-action="Edit" asp-controller="Blogs" asp-route-id="@blog.Id"></a>
+                                <a class="btn btn-dark btn-sm note-btn-block mb-2" asp-action="Edit" asp-controller="Blogs" asp-route-id="@blog.Id">Edit</a>
                             </div>
                         }
 

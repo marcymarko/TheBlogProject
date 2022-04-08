@@ -11312,25 +11312,26 @@ button.btn-sm, a.btn-sm {
 }
 
 .btn-dark:hover {
-    border: 4px solid #25d456;
+    border: 4px solid #0085A1;
+    color: #0085A1;
 }
 
 .btn-warning {
     color: #212121;
     background-color: #1976b5;
-    border-color: #6c757d;
+    border-color: #0085A1
 }
 
     .btn-warning:hover {
         color: white;
-        background-color: #1976b5;
+        background-color: #0085A1;
         outline: 4px solid #000;
     }
 
 .card-hr {
-    color: #000;
-    background-color: #000;
-    height: 3px;
+    color: #0085A1;
+    background-color: #0085A1;
+    height: 2px;
 }
 
 .card-text {
@@ -11348,11 +11349,11 @@ button.btn-sm, a.btn-sm {
 }
 
 .card-img, .card-img-top, .card-img-bottom {
-    height: 200px;
+    height: 150px;
 }
 
 .page-item.active .page-link {
-    background-color: #212121;
+    background-color: #0085A1;
     border-color: black;
 }
 
@@ -11362,7 +11363,7 @@ button.btn-sm, a.btn-sm {
 
 div.swal12-container.swal12-center.swal12-backdrop-show > div {
     outline: 4px solid black;
-    border: 2px solid #ff993b;
+    border: 2px solid #0085A1;
 }
 
 .cftooltip * {
