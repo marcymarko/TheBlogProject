@@ -19,5 +19,8 @@ namespace TheBlogProject.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Tag> Tags { get; set; }
 
+        //added DisplayName cuz heroku logs yelling its not present
+        public string DisplayName { get; set; }
+
     }
 }
