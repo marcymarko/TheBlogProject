@@ -67,7 +67,6 @@ namespace TheBlogProject.Services
                 FirstName = "Mark",
                 LastName = "Zilkovskyi",
                 PhoneNumber = "215-688-8404",
-                DisplayName = "Marko",
                 EmailConfirmed = true,
             };
 
@@ -85,7 +84,6 @@ namespace TheBlogProject.Services
                 FirstName = "Fil",
                 LastName = "Zilkovskyi",
                 PhoneNumber = "215-688-8404",
-                DisplayName = "Marko",
                 EmailConfirmed = true,
             };
 
