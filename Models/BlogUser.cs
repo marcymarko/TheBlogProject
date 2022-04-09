@@ -16,10 +16,10 @@ namespace TheBlogProject.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Display Name")]
         [StringLength(50, ErrorMessage = "The {0} must be at least {2} and no longer than {1} characters long.", MinimumLength = 2)]
-        public string DisplayName { get; set; }
+        public string? DisplayName { get; set; }
 
         public byte[] ImageData { get; set; }
         public string ContentType { get; set; }
