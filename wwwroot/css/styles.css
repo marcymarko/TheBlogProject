@@ -11351,7 +11351,7 @@ button.btn-sm, a.btn-sm {
 }
 
 .card-img, .card-img-top, .card-img-bottom {
-    height: 250px;
+    height: 150px;
 }
 
 .page-item.active .page-link {
