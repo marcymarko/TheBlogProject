@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace TheBlogProject.Data.Migrations
 {
-    public partial class _001 : Migration
+    public partial class Initial_002 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,6 +29,7 @@ namespace TheBlogProject.Data.Migrations
                     Id = table.Column<string>(type: "text", nullable: false),
                     FirstName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    DisplayName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     ImageData = table.Column<byte[]>(type: "bytea", nullable: true),
                     ContentType = table.Column<string>(type: "text", nullable: true),
                     FacebookUrl = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
@@ -192,8 +193,8 @@ namespace TheBlogProject.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     BlogId = table.Column<int>(type: "integer", nullable: false),
                     BlogUserId = table.Column<string>(type: "text", nullable: true),
-                    Title = table.Column<string>(type: "character varying(75)", maxLength: 75, nullable: false),
-                    Abstract = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    Title = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Abstract = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Content = table.Column<string>(type: "text", nullable: false),
                     Created = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Updated = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
